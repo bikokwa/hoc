@@ -1,14 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+function WithTextDecoration(Component) {
+  return (props) => {
+    return <Component {...props} style={{ textDecoration: "underline" }} />;
+  };
+}
+
+const Para = () => {
+  return <p>I am a paragraph</p>;
+};
+
+const Text = (props) => {
+  return <h1 {...props}>I am text</h1>;
+};
+
+const TextDecoration = WithTextDecoration(Text);
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Para />
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -17,6 +30,7 @@ function App() {
         >
           Learn React
         </a>
+        <TextDecoration />
       </header>
     </div>
   );
